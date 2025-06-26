@@ -1,6 +1,5 @@
-import { AreaData, VoteVenue } from '../types/map';
 
-export const sampleAreaData: AreaData[] = [
+export const sampleAreaData = [
   {
     id: 1,
     name: '千代田区',
@@ -33,7 +32,7 @@ export const sampleProgressData = {
   percentage: 72.3
 };
 
-export const sampleVoteVenues: VoteVenue[] = [
+export const sampleVoteVenues = [
   {
     name: '千代田区役所',
     address: '千代田区九段南1-2-1',
