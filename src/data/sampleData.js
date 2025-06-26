@@ -50,3 +50,33 @@ export const sampleVoteVenues = [
     time: '8:30～20:00'
   }
 ];
+
+export const sampleMarkers = [
+  {
+    id: 1,
+    name: '新宿区ポスター掲示板A',
+    lat: 35.6896,
+    lng: 139.6917,
+    status: 'completed', // 貼り付け済み
+    address: '新宿区西新宿2-8-1',
+    note: 'ポスター貼り付け完了'
+  },
+  {
+    id: 2,
+    name: '渋谷区ポスター掲示板B',
+    lat: 35.6598,
+    lng: 139.7006,
+    status: 'damaged', // 破損
+    address: '渋谷区道玄坂1-2-3',
+    note: 'ポスター破損により要修理'
+  },
+  {
+    id: 3,
+    name: '港区ポスター掲示板C',
+    lat: 35.6585,
+    lng: 139.7454,
+    status: 'pending', // 未実施
+    address: '港区六本木6-10-1',
+    note: 'ポスター貼り付け予定'
+  }
+];

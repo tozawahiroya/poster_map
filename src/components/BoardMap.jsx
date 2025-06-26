@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { BaseMap } from './Map/BaseMap';
 import { LayerControl } from './Map/LayerControl';
 import { ProgressControl } from './Map/ProgressControl';
+import { MarkerLayer } from './Map/MarkerLayer';
 import { TILE_LAYERS } from '../utils/mapConfig';
-import { sampleProgressData } from '../data/sampleData';
+import { sampleProgressData, sampleMarkers } from '../data/sampleData';
 
 export const BoardMap = () => {
   const [currentLayer, setCurrentLayer] = useState('osm');
@@ -11,6 +12,7 @@ export const BoardMap = () => {
   return (
     <div className="board-map">
       <BaseMap tileLayer={currentLayer}>
+        <MarkerLayer markers={sampleMarkers} />
       </BaseMap>
       
       <LayerControl
