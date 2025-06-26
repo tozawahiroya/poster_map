@@ -59,9 +59,6 @@ export const MarkerLayer = ({ markers }) => {
             eventHandlers={{
               mouseover: (e) => {
                 e.target.openPopup();
-              },
-              mouseout: (e) => {
-                e.target.closePopup();
               }
             }}
           >
