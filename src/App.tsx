@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { BoardMap } from './components/BoardMap'
 import { SummaryMap } from './components/SummaryMap'
 import { VoteMap } from './components/VoteMap'
-import { MAP_VIEWS } from './types/map'
+import { MAP_VIEWS, MapViewType } from './types/map'
 import './App.css'
 
 function App() {
-  const [activeView, setActiveView] = useState(MAP_VIEWS.BOARD)
+  const [activeView, setActiveView] = useState<MapViewType>(MAP_VIEWS.BOARD)
 
   const renderActiveMap = () => {
     switch (activeView) {

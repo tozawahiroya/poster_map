@@ -1,4 +1,4 @@
-import { AreaData, ProgressData, VoteVenue } from '../types/map';
+import { AreaData, VoteVenue } from '../types/map';
 
 export const sampleAreaData: AreaData[] = [
   {
