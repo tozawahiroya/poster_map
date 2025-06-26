@@ -59,17 +59,35 @@ export const MarkerLayer = ({ markers }) => {
             eventHandlers={{
               mouseover: (e) => {
                 e.target.openPopup();
-              },
-              mouseout: (e) => {
+                
                 setTimeout(() => {
                   const popup = e.target.getPopup();
                   if (popup && popup.isOpen()) {
                     const popupElement = popup.getElement();
-                    if (popupElement && !popupElement.matches(':hover')) {
-                      e.target.closePopup();
+                    if (popupElement) {
+                      const handleGlobalMouseMove = (event) => {
+                        const rect = popupElement.getBoundingClientRect();
+                        const isInsidePopup = (
+                          event.clientX >= rect.left &&
+                          event.clientX <= rect.right &&
+                          event.clientY >= rect.top &&
+                          event.clientY <= rect.bottom
+                        );
+                        
+                        if (!isInsidePopup) {
+                          e.target.closePopup();
+                          document.removeEventListener('mousemove', handleGlobalMouseMove);
+                        }
+                      };
+                      
+                      document.addEventListener('mousemove', handleGlobalMouseMove);
+                      
+                      popup.on('remove', () => {
+                        document.removeEventListener('mousemove', handleGlobalMouseMove);
+                      });
                     }
                   }
-                }, 100);
+                }, 50);
               }
             }}
           >
