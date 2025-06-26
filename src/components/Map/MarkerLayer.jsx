@@ -59,10 +59,28 @@ export const MarkerLayer = ({ markers }) => {
             eventHandlers={{
               mouseover: (e) => {
                 e.target.openPopup();
+                
+                setTimeout(() => {
+                  const popup = e.target.getPopup();
+                  if (popup && popup.isOpen()) {
+                    const popupElement = popup.getElement();
+                    if (popupElement) {
+                      const handleMouseLeave = () => {
+                        e.target.closePopup();
+                        popupElement.removeEventListener('mouseleave', handleMouseLeave);
+                      };
+                      popupElement.addEventListener('mouseleave', handleMouseLeave);
+                    }
+                  }
+                }, 50);
               }
             }}
           >
-            <Popup closeButton={false} autoClose={false} closeOnClick={false}>
+            <Popup 
+              closeButton={false} 
+              autoClose={false} 
+              closeOnClick={false}
+            >
             <div style={{ minWidth: '200px' }}>
               <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', fontWeight: 'bold' }}>
                 {marker.name}
@@ -107,8 +125,8 @@ export const MarkerLayer = ({ markers }) => {
                 </a>
               </div>
             </div>
-          </Popup>
-        </CircleMarker>
+            </Popup>
+          </CircleMarker>
         );
       })}
     </>
