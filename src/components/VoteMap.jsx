@@ -3,8 +3,8 @@ import { BaseMap } from './Map/BaseMap';
 import { LayerControl } from './Map/LayerControl';
 import { TILE_LAYERS } from '../utils/mapConfig';
 
-export const VoteMap: React.FC = () => {
-  const [currentLayer, setCurrentLayer] = useState<keyof typeof TILE_LAYERS>('osm');
+export const VoteMap = () => {
+  const [currentLayer, setCurrentLayer] = useState('osm');
 
   return (
     <div className="vote-map">

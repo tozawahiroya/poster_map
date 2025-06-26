@@ -1,12 +1,7 @@
 import React from 'react';
 import { TILE_LAYERS } from '../../utils/mapConfig';
 
-interface LayerControlProps {
-  currentLayer: keyof typeof TILE_LAYERS;
-  onLayerChange: (layer: keyof typeof TILE_LAYERS) => void;
-}
-
-export const LayerControl: React.FC<LayerControlProps> = ({
+export const LayerControl = ({
   currentLayer,
   onLayerChange
 }) => {
@@ -18,7 +13,7 @@ export const LayerControl: React.FC<LayerControlProps> = ({
           <button
             key={key}
             className={`layer-button ${currentLayer === key ? 'active' : ''}`}
-            onClick={() => onLayerChange(key as keyof typeof TILE_LAYERS)}
+            onClick={() => onLayerChange(key)}
           >
             {layer.name}
           </button>

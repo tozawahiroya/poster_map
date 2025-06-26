@@ -3,15 +3,7 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import { DEFAULT_MAP_CONFIG, TILE_LAYERS } from '../../utils/mapConfig';
 import 'leaflet/dist/leaflet.css';
 
-interface BaseMapProps {
-  children?: React.ReactNode;
-  center?: [number, number];
-  zoom?: number;
-  tileLayer?: keyof typeof TILE_LAYERS;
-  className?: string;
-}
-
-export const BaseMap: React.FC<BaseMapProps> = ({
+export const BaseMap = ({
   children,
   center = DEFAULT_MAP_CONFIG.center,
   zoom = DEFAULT_MAP_CONFIG.zoom,

@@ -1,12 +1,6 @@
 import React from 'react';
 
-interface ProgressControlProps {
-  total: number;
-  completed: number;
-  percentage: number;
-}
-
-export const ProgressControl: React.FC<ProgressControlProps> = ({
+export const ProgressControl = ({
   total,
   completed,
   percentage

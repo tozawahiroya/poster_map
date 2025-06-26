@@ -5,8 +5,8 @@ import { ProgressControl } from './Map/ProgressControl';
 import { TILE_LAYERS } from '../utils/mapConfig';
 import { sampleProgressData } from '../data/sampleData';
 
-export const BoardMap: React.FC = () => {
-  const [currentLayer, setCurrentLayer] = useState<keyof typeof TILE_LAYERS>('osm');
+export const BoardMap = () => {
+  const [currentLayer, setCurrentLayer] = useState('osm');
 
   return (
     <div className="board-map">
