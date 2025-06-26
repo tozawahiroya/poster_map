@@ -59,7 +59,8 @@ export const MarkerLayer = ({ markers }) => {
             eventHandlers={{
               mouseover: (e) => {
                 e.target.openPopup();
-                
+              },
+              mouseout: (e) => {
                 setTimeout(() => {
                   const popup = e.target.getPopup();
                   if (popup && popup.isOpen()) {
