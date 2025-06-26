@@ -59,46 +59,17 @@ export const MarkerLayer = ({ markers }) => {
             eventHandlers={{
               mouseover: (e) => {
                 e.target.openPopup();
-                
+              },
+              mouseout: (e) => {
                 setTimeout(() => {
                   const popup = e.target.getPopup();
                   if (popup && popup.isOpen()) {
                     const popupElement = popup.getElement();
-                    if (popupElement) {
-                      const handleMouseEnter = () => {
-                        clearTimeout(popupElement._closeTimeout);
-                      };
-                      const handleMouseLeave = () => {
-                        popupElement._closeTimeout = setTimeout(() => {
-                          e.target.closePopup();
-                        }, 100);
-                      };
-                      
-                      popupElement.addEventListener('mouseenter', handleMouseEnter);
-                      popupElement.addEventListener('mouseleave', handleMouseLeave);
-                      
-                      popupElement._cleanup = () => {
-                        popupElement.removeEventListener('mouseenter', handleMouseEnter);
-                        popupElement.removeEventListener('mouseleave', handleMouseLeave);
-                        clearTimeout(popupElement._closeTimeout);
-                      };
+                    if (popupElement && !popupElement.matches(':hover')) {
+                      e.target.closePopup();
                     }
                   }
-                }, 50);
-              },
-              mouseout: (e) => {
-                const popup = e.target.getPopup();
-                if (popup && popup.isOpen()) {
-                  const popupElement = popup.getElement();
-                  if (popupElement) {
-                    popupElement._closeTimeout = setTimeout(() => {
-                      e.target.closePopup();
-                      if (popupElement._cleanup) {
-                        popupElement._cleanup();
-                      }
-                    }, 100);
-                  }
-                }
+                }, 100);
               }
             }}
           >
