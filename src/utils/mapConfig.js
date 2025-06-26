@@ -17,7 +17,7 @@ export const TILE_LAYERS = {
 };
 
 export const DEFAULT_MAP_CONFIG = {
-  center: [35.6762, 139.6503] as [number, number],
+  center: [35.6762, 139.6503],
   zoom: 10,
   minZoom: 5,
   maxZoom: 18
